@@ -1,0 +1,3 @@
+[submodule "lib/LCD_RA8876_FT5316"]
+	path = lib/LCD_RA8876_FT5316
+	url = https://github.com/KirillSomov/LCD_RA8876_FT5316.git
