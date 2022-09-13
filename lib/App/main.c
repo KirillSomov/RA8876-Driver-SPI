@@ -1,5 +1,9 @@
 
 #include "stm32f4xx.h"                  // Device header
+#include "GPIO.h"
+#include "CPU.h"
+#include "Timer.h"
+#include "SPI.h"
 
 uint16_t data = 0;
 
@@ -10,7 +14,7 @@ uint16_t data = 0;
 
 
 struct _ts_event ts_event = {0};
-extern const unsigned char image_foggy_forest_landscape_small[];
+extern const unsigned char image_deb[];
 
 
 int main(void)
@@ -22,45 +26,23 @@ int main(void)
    
   //I2C1_init();
   //EXTI_init();
-  //FT5316_reset();
   //TOUCH_Init();
-  //RA8876_HW_Reset();
   LCD_init();
   //LCD_cleanCurrentPage(White);
-  //BTE_Pattern_Fill();
-  //LCD_drawBitmap(20, 20, 50, 100);
-  //LCD_drawBitmap(350, 20, 200, 400);
-  //LCD_drawBitmap2(&pic_80x80, 10, 10, 80, 80);
   //LCD_drawBitmap3(&image_foggy_forest_landscape_small, 100, 100, 300, 168);
   LCD_setPage(PAGE1_START_ADDR);
   LCD_cleanCurrentPage(0x0000);
   delay_ms(500);
   LCD_setPage(0);
-  LCD_drawBitmap2(&image_foggy_forest_landscape_small, 50, 50, 300, 168);
-  LCD_drawBitmap2(&image_foggy_forest_landscape_small, 370, 150, 300, 168);
-  LCD_drawBitmap2(&image_foggy_forest_landscape_small, 690, 250, 300, 168);
-  LCD_drawBitmap3(0, 0, 0, 1024, 600);
-  //LCD_setPage(PAGE1_START_ADDR);
-  /*LCD_printString1("PAGE 0", 50, 50, White, Black);
-  delay_ms(2000);
-  LCD_setPage(PAGE1_START_ADDR);
-  LCD_cleanCurrentPage(Red);
-  LCD_printString1("PAGE 1", 50, 50, White, Black);
-  delay_ms(2000);*/
+  LCD_drawBitmap(&image_deb, 10, 10, 400, 422);
+  LCD_drawBitmapPageBuf(&image_deb, PAGE1_START_ADDR, PAGE0_START_ADDR, 420, 10, 400, 422);
+
 
   while(1)
   {
-    //ts_event = touchGetPoint();
-    //Graphic_Cursor_XY(-1*(ts_event.x1-1023), -1*(ts_event.y1-599));
+
+
     delay_ms(1);
-    //data = LCD_StatusRead();
-    //BTE_Pattern_Fill();
-    //BTE_Compare();
-    //BTE_Color_Expansion();
-    //BTE_Pattern_Fill();
-    //delay_ms(2000);
-    //LCD_cleanCurrentPage(White);
-    //delay_ms(100);
   }
 
 

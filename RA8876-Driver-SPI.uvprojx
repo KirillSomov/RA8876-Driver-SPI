@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\lib\App;.\lib\HW;.\lib\LCD;.\lib\CMSIS;.\lib\SPL</IncludePath>
+              <IncludePath>.\lib\App;.\lib\HW;.\lib\CMSIS;.\lib\SPL;.\lib\LCD_RA8876_FT5316;.\lib\assets</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -462,47 +462,42 @@
             <File>
               <FileName>FT5316.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\lib\LCD\FT5316.c</FilePath>
+              <FilePath>.\lib\LCD_RA8876_FT5316\FT5316.c</FilePath>
             </File>
             <File>
               <FileName>FT5316.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\lib\LCD\FT5316.h</FilePath>
-            </File>
-            <File>
-              <FileName>image_foggy-forest-landscape-small.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\lib\LCD\image_foggy-forest-landscape-small.c</FilePath>
+              <FilePath>.\lib\LCD_RA8876_FT5316\FT5316.h</FilePath>
             </File>
             <File>
               <FileName>LCD_api.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\lib\LCD\LCD_api.c</FilePath>
+              <FilePath>.\lib\LCD_RA8876_FT5316\LCD_api.c</FilePath>
             </File>
             <File>
               <FileName>LCD_api.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\lib\LCD\LCD_api.h</FilePath>
+              <FilePath>.\lib\LCD_RA8876_FT5316\LCD_api.h</FilePath>
             </File>
             <File>
               <FileName>LCD_demo.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\lib\LCD\LCD_demo.c</FilePath>
+              <FilePath>.\lib\LCD_RA8876_FT5316\LCD_demo.c</FilePath>
             </File>
             <File>
               <FileName>LCD_demo.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\lib\LCD\LCD_demo.h</FilePath>
+              <FilePath>.\lib\LCD_RA8876_FT5316\LCD_demo.h</FilePath>
             </File>
             <File>
               <FileName>RA8876.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\lib\LCD\RA8876.c</FilePath>
+              <FilePath>.\lib\LCD_RA8876_FT5316\RA8876.c</FilePath>
             </File>
             <File>
               <FileName>RA8876.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\lib\LCD\RA8876.h</FilePath>
+              <FilePath>.\lib\LCD_RA8876_FT5316\RA8876.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -618,6 +613,16 @@
               <FileName>stm32f4xx_tim.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\lib\SPL\stm32f4xx_tim.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>assets</GroupName>
+          <Files>
+            <File>
+              <FileName>image_deb.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\assets\image_deb.c</FilePath>
             </File>
           </Files>
         </Group>
