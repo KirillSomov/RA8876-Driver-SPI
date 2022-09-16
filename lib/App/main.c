@@ -7,9 +7,11 @@
 
 uint16_t data = 0;
 
+uint16_t tX = 0;
+uint16_t tY = 0;
+
 #include "RA8876.h"
 #include "FT5316.h"
-#include "LCD_demo.h"
 #include "LCD_api.h"
 
 
@@ -24,9 +26,9 @@ int main(void)
   TIM6_DAC_init();
   SPIxInit(SPI3, 0, 0); //~13 MHz
    
-  //I2C1_init();
+  I2C1_init();
   //EXTI_init();
-  //TOUCH_Init();
+  Touch_init();
   LCD_init();
   //LCD_cleanCurrentPage(White);
   //LCD_drawBitmap3(&image_foggy_forest_landscape_small, 100, 100, 300, 168);
@@ -37,10 +39,13 @@ int main(void)
   LCD_drawBitmap(&image_deb, 10, 10, 400, 422);
   LCD_drawBitmapPageBuf(&image_deb, PAGE1_START_ADDR, PAGE0_START_ADDR, 420, 10, 400, 422);
 
-
   while(1)
   {
-
+    Touch_handler();
+    if(Touch_sampleTouch(&tX, &tY))
+    {
+      LCD_drawFilledCircle(tX, tY, 5, Magenta);
+    }
 
     delay_ms(1);
   }
@@ -85,7 +90,7 @@ int main(void)
   
   while(1)
   {
-    ts_event = touchGetPoint();
+    //ts_event = touchGetPoint();
     Graphic_Cursor_XY(-1*(ts_event.x1-1023), -1*(ts_event.y1-599));
     delay_ms(1);
   }

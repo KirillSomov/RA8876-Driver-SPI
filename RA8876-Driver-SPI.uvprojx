@@ -480,16 +480,6 @@
               <FilePath>.\lib\LCD_RA8876_FT5316\LCD_api.h</FilePath>
             </File>
             <File>
-              <FileName>LCD_demo.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\lib\LCD_RA8876_FT5316\LCD_demo.c</FilePath>
-            </File>
-            <File>
-              <FileName>LCD_demo.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\lib\LCD_RA8876_FT5316\LCD_demo.h</FilePath>
-            </File>
-            <File>
               <FileName>RA8876.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\lib\LCD_RA8876_FT5316\RA8876.c</FilePath>

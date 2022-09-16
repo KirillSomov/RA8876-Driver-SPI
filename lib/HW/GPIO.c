@@ -37,8 +37,8 @@ void	GPIO_gpoSetup(void)
   GPIO_initGpo.GPIO_Pin   = GPIO_Pin_8;															// PA8 - MODBUS MASTER TX EN
   GPIO_Init(GPIOA,&GPIO_initGpo); 																	// PC9 - LCD_DC
   
-  GPIO_initGpo.GPIO_Pin   = GPIO_Pin_3 | GPIO_Pin_4 | GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_5;		// PD3 - LCD_RST, PD4 - TOUCH_FT5316_RSTN
-  GPIO_Init(GPIOD,&GPIO_initGpo);																															// PD3 - LCD_RST, PD4 - TOUCH_FT5316_RSTN, PD5 - TOUCH_IRQ
+  GPIO_initGpo.GPIO_Pin   = GPIO_Pin_3 | GPIO_Pin_4 | GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2;		// PD3 - LCD_RST, PD4 - TOUCH_FT5316_RSTN
+  GPIO_Init(GPIOD,&GPIO_initGpo);																															// PD3 - LCD_RST, PD4 - TOUCH_FT5316_RSTN
                                                                                               // PD0 - MODBUS SLAVE LED, PD1 - MODBUS MASTER LED
 }
 
