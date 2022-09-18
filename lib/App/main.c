@@ -1,18 +1,14 @@
 
 #include "stm32f4xx.h"                  // Device header
-#include "GPIO.h"
 #include "CPU.h"
 #include "Timer.h"
+#include "GPIO.h"
 #include "SPI.h"
-
-uint16_t data = 0;
+#include "I2C.h"
+#include "LCD_api.h"
 
 uint16_t tX = 0;
 uint16_t tY = 0;
-
-#include "RA8876.h"
-#include "FT5316.h"
-#include "LCD_api.h"
 
 
 struct _ts_event ts_event = {0};
@@ -30,14 +26,24 @@ int main(void)
   //EXTI_init();
   Touch_init();
   LCD_init();
-  //LCD_cleanCurrentPage(White);
-  //LCD_drawBitmap3(&image_foggy_forest_landscape_small, 100, 100, 300, 168);
+
+  LCD_setPage(PAGE0_START_ADDR);
+  LCD_cleanCurrentPage(Magenta);
   LCD_setPage(PAGE1_START_ADDR);
-  LCD_cleanCurrentPage(0x0000);
-  delay_ms(500);
-  LCD_setPage(0);
-  LCD_drawBitmap(&image_deb, 10, 10, 400, 422);
-  LCD_drawBitmapPageBuf(&image_deb, PAGE1_START_ADDR, PAGE0_START_ADDR, 420, 10, 400, 422);
+  LCD_cleanCurrentPage(0xBCDB);
+  LCD_drawBitmap(&image_deb, 150, 50, 400, 422);
+  LCD_setPage(PAGE2_START_ADDR);
+  LCD_cleanCurrentPage(Red);
+  LCD_showPage(PAGE1_START_ADDR);
+  delay_ms(1000);
+  LCD_showPage(PAGE2_START_ADDR);
+  delay_ms(1000);
+  LCD_showPage(PAGE0_START_ADDR);
+  delay_ms(1000);
+  LCD_showPage(PAGE1_START_ADDR);
+  delay_ms(1000);
+
+  //LCD_drawBitmapPageBuf(&image_deb, PAGE1_START_ADDR, PAGE0_START_ADDR, 420, 10, 400, 422);
 
   while(1)
   {
@@ -109,24 +115,5 @@ int main(void)
     Graphic_Cursor_XY(0,508);	
     delay_ms(2000);
   } 
-
-
-  /*GUI_CTC_pageLogoInit();
-  delay_ms(1000);
-  GUI_pagesStorageInit();
-  GUI_cryoInit();
-  while(1)
-  {
-    {
-      static int32_t GUI_tick = 0;
-      const  int32_t GUI_period = 20;
-      int32_t dT = (int32_t)(SysTickMs - GUI_tick);
-      if(dT >= GUI_period)
-      {
-        GUI_tick = SysTickMs;
-        GUI_Handler(dT);
-      }
-    }
-  }*/
 
 }
