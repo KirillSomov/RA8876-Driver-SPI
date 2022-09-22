@@ -614,6 +614,11 @@
               <FileType>1</FileType>
               <FilePath>.\lib\assets\image_deb.c</FilePath>
             </File>
+            <File>
+              <FileName>image_deb_8bit.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\lib\assets\image_deb_8bit.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

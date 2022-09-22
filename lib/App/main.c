@@ -13,6 +13,7 @@ uint16_t tY = 0;
 
 struct _ts_event ts_event = {0};
 extern const unsigned char image_deb[];
+extern const unsigned char image_deb_8bpp[];
 
 
 int main(void)
@@ -28,22 +29,13 @@ int main(void)
   LCD_init();
 
   LCD_setPage(PAGE0_START_ADDR);
-  LCD_cleanCurrentPage(Magenta);
+  LCD_cleanCurrentPage(White);
   LCD_setPage(PAGE1_START_ADDR);
-  LCD_cleanCurrentPage(0xBCDB);
-  LCD_drawBitmap(&image_deb, 150, 50, 400, 422);
-  LCD_setPage(PAGE2_START_ADDR);
-  LCD_cleanCurrentPage(Red);
-  LCD_showPage(PAGE1_START_ADDR);
-  delay_ms(1000);
-  LCD_showPage(PAGE2_START_ADDR);
-  delay_ms(1000);
+  LCD_cleanCurrentPage(White);
+  LCD_setPage(PAGE0_START_ADDR);
   LCD_showPage(PAGE0_START_ADDR);
-  delay_ms(1000);
-  LCD_showPage(PAGE1_START_ADDR);
-  delay_ms(1000);
-
-  //LCD_drawBitmapPageBuf(&image_deb, PAGE1_START_ADDR, PAGE0_START_ADDR, 420, 10, 400, 422);
+  LCD_drawBitmap(&image_deb, MODE_16BPP, 10, 10, 400, 422);
+  LCD_drawBitmapPageBuf(&image_deb_8bpp, MODE_8BPP, PAGE1_START_ADDR, PAGE0_START_ADDR, MODE_16BPP, 420, 10, 400, 422);
 
   while(1)
   {
