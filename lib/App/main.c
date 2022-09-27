@@ -38,7 +38,7 @@ int main(void)
   //LCD_drawBitmapPageBuf(&image_deb_8bpp, MODE_8BPP, PAGE1_START_ADDR, PAGE0_START_ADDR, MODE_16BPP, 420, 10, 400, 422);
   LCD_printString("Hello", 57, 300, FONT_SIZE_16X32, FONT_WIDTH_X1, FONT_HEIGHT_X1, Magenta, 0x4BC6);
   LCD_printString("Hello", 62, 305, FONT_SIZE_16X32, FONT_WIDTH_X1, FONT_HEIGHT_X1, -1, Red);
-
+  LCD_drawLine(20, 20, 786, 386, Black);
 
   while(1)
   {
