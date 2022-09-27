@@ -2,32 +2,22 @@
 #ifndef TIMER_H
 #define TIMER_H
 
-
-// подключение заголовочных файлов модулей проекта
-#include "stm32f4xx.h"                  // Device header
+#include "stm32f4xx.h"
 
 
-// прототипы функций	
-extern volatile int32_t TIM6_tick;
-#define SysTickMs TIM6_tick
-void TIM6_DAC_init(void);
-void TIM6_DAC_IRQHandler(void);
-
-void delay_ms(uint32_t Delay_ms_Data);	// функия задержки в мс
+void TIM10_init(void);
+void delay_ms(uint16_t ms);
 
 #define TIMEOUT_MS(cmd, timeout /*, success_flag*/) { \
-  int32_t start_tick = TIM6_tick; \
+  uint16_t start_tick = TIM10->CNT; \
   /*(success_flag) = true;*/ \
   while( (cmd) ) { \
-    if ( (int32_t)(TIM6_tick - start_tick) > (int32_t)(timeout) ) { \
+    if ( (uint16_t)(TIM10->CNT - start_tick) > (uint16_t)(timeout) ) { \
       /*(success_flag) = false;*/ \
       break; \
     } \
   } \
 }
-
-void TIM7_init(void);
-void TIM7_IRQHandler(void);
 
 
 #endif

@@ -21,9 +21,9 @@ void	clockSetup(void)
   RCC->CR |=	RCC_CR_PLLON;
   while(!(RCC->CR & RCC_CR_PLLRDY))	{;} //wait for PLL ready 
     
-  RCC->CFGR |= RCC_CFGR_HPRE_DIV1; 		// AHB = PLLCLK / 1 = 105 MHz
-  RCC->CFGR |= RCC_CFGR_PPRE2_DIV2;   // APB2 = AHB / 2 = 52.5 MHz
-  RCC->CFGR |= RCC_CFGR_PPRE1_DIV4; 	// APB1 = AHB / 4 = 26.25 MHz
+  RCC->CFGR |= RCC_CFGR_HPRE_DIV1; 		// AHB = PLLCLK / 1 = 168 MHz
+  RCC->CFGR |= RCC_CFGR_PPRE1_DIV4; 	// APB1 = AHB / 4 = 42 MHz
+  RCC->CFGR |= RCC_CFGR_PPRE2_DIV8;   // APB2 = AHB / 8 = 21 MHz
   
   RCC->CFGR = (RCC->CFGR & ~RCC_CFGR_SW) | RCC_CFGR_SW_PLL;
   while((RCC->CFGR & RCC_CFGR_SWS ) != RCC_CFGR_SWS_PLL)	{;}
@@ -41,6 +41,7 @@ void	periphClockSetup(void)
   
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_EXTIT,	ENABLE);
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM10,  ENABLE);
   RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM6,		ENABLE);
   RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM7,		ENABLE);
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_SPI1,		ENABLE);
@@ -50,7 +51,6 @@ void	periphClockSetup(void)
   RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART2,	ENABLE); // connected to DSE module, modbus slave
   RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2,   ENABLE); // TIM2 - Modbus slave rx data timer
   RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4,   ENABLE);
-
 } 
 
 

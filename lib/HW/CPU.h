@@ -9,9 +9,9 @@
 
 // 
 #define cPLLM 	4				// main PLL (PLLM) = 8 MHz / 4 = 2 MHz
-#define cPLLN 	210			// VCO output = PLLM * 210 = 420 MHz
-#define cPLLP 	1				// PLLP = VCO output / 4 = 105 MHz
-#define cPLLQ 	8
+#define cPLLN 	168			// VCO output = PLLM * 168 = 336 MHz
+#define cPLLP 	2				// PLLP = VCO output / 2 = 168 MHz
+#define cPLLQ 	4
 
 
 // прототипы функций

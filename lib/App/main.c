@@ -20,7 +20,7 @@ int main(void)
 {
   CPU_init();
   GPIO_setup();
-  TIM6_DAC_init();
+  TIM10_init();
   SPIxInit(SPI3, 0, 0); //~13 MHz
    
   I2C1_init();
@@ -36,8 +36,9 @@ int main(void)
   LCD_showPage(PAGE0_START_ADDR);
   //LCD_drawBitmap(&image_deb, MODE_16BPP, 10, 10, 400, 422);
   //LCD_drawBitmapPageBuf(&image_deb_8bpp, MODE_8BPP, PAGE1_START_ADDR, PAGE0_START_ADDR, MODE_16BPP, 420, 10, 400, 422);
-  LCD_printString("æ∏œ∏", 57, 300, FONT_SIZE_16X32, FONT_WIDTH_X1, FONT_HEIGHT_X1, White, 0x4BC6);
-  LCD_printString("ﬁ·›ﬁ“–› “ 1956 ”.", 30, 350, FONT_SIZE_12X24, FONT_WIDTH_X1, FONT_HEIGHT_X1, White, 0x4BC6);
+  LCD_printString("Hello", 57, 300, FONT_SIZE_16X32, FONT_WIDTH_X1, FONT_HEIGHT_X1, Magenta, 0x4BC6);
+  LCD_printString("Hello", 62, 305, FONT_SIZE_16X32, FONT_WIDTH_X1, FONT_HEIGHT_X1, -1, Red);
+
 
   while(1)
   {
